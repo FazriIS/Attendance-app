@@ -1,0 +1,68 @@
+aplikasi yang saya buat adalah untuk maintenance absensi karyawan
+sebelum menjalankan nya bisa php artisan migrate:fresh --seed
+
+ada 2 akun user di seeder yang saya buat 
+akun "user" dan "admin"
+
+akun user hanya bisa untuk melakukan absensi dan merequest lokasi kantor 
+akun admin dapat melakukan mengatur seluruh nya dari membuat mastershift,menghapus karyawan tertentu,mengedit akun user,dan lain-lain
+
+untuk api authorization saya buat api menggunakan openapi dan di folder "docs",untuk route dan controller nya pada folder api nya masing-masing
+
+dan saya hanya membuat untuk kebutuhan CRUD register,read data user login,update data user berdasarkan token,dan logout
+
+untuk request Body pada register seperti ini 
+
+{
+  "name": "Muhammad Fazri",
+  "fofo_karyawan": "foto_profile_fazri.jpg",
+  "email": "muhamadfazri0702@gmail.com",
+  "telepon": "08515822110",
+  "username": "FazriIS",
+  "password": "password",
+  "tgl_lahir": "2001-02-07",
+  "gender": "Laki-Laki",
+  "tgl_join": "2022-01-01",
+  "status_nikah": "Lajang",
+  "alamat": "Kp. Pasir Angin Gadog",
+  "cuti_dadakan": "12",
+  "cuti_bersama": "6",
+  "cuti_menikah": "2",
+  "cuti_diluar_tanggungan": "10",
+  "cuti_khusus": "8",
+  "cuti_melahirkan": "6",
+  "izin_telat": "16",
+  "izin_pulang_cepat": "9",
+  "is_admin": "user",
+  "jabatan_id": 2,
+  "lokasi_id": 1
+}
+
+dan untuk request body request 
+
+{
+    "username": "FazriIS",
+    "password": "password"
+}
+
+untuk mendapatkan data pada header dapat mengirim key dan value
+
+authorization : token yang didapat ketika login;
+
+dan untuk update user hanya dapat mengisi field yang ditentukan
+
+{
+    "name": "Nama Baru",
+    "fofo_karyawan": "Info Baru",
+    "email": "email@baru.com",
+    "telepon": "123456789",
+    "username": "userbaru",
+    "password": "passwordbaru",
+    "tgl_lahir": "1990-01-01",
+    "gender": "Laki-laki",
+    "tgl_join": "2023-01-01",
+    "status_nikah": "Belum Menikah",
+    "alamat": "Alamat Baru"
+}
+
+sekian project yang saya buat.Terima Kasih

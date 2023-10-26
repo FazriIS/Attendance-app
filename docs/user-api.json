@@ -1,0 +1,506 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "User API",
+        "description": "User API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/users/register": {
+            "post": {
+                "description": "Register new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "examples" : {
+                                "Fazri" : {
+                                    "description": "Register User Fazri",
+                                    "value" : {
+                                        "name" : "Muhammad Fazri",
+                                        "fofo_karyawan" : "foto_profile_fazri.jpg",
+                                        "email" : "muhamadfazri0702@gmail.com",
+                                        "telepon" : "08515822110",
+                                        "username" : "FazriIS",
+                                        "password" : "password",
+                                        "password_confirmation" : "password",
+                                        "tgl_lahir" : "2001-02-07",
+                                        "gender" : "Laki-Laki",
+                                        "tgl_join" : "2022-01-01",
+                                        "status_nikah" : "Lajang",
+                                        "alamat" : "Kp. Pasir Angin Gadog",
+                                        "cuti_dadakan" : "12",
+                                        "cuti_bersama" : "6",
+                                        "cuti_menikah" : "2",
+                                        "cuti_diluar_tanggungan" : "10",
+                                        "cuti_khusus" : "8",
+                                        "cuti_melahirkan" : "6",
+                                        "izin_telat" : "16",
+                                        "izin_pulang_cepat" : "9",
+                                        "is_admin" : "user",
+                                        "jabatan_id": 2,
+                                        "lokasi_id" : 1
+                                    }
+                                }
+                            },
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "name","email","telepon","username","password","tgl_lahir","gender","tgl_join","status_nikah", "alamat", "is_admin","jabatan_id","lokasi_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "fofo_karyawan": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "telepon": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "tgl_lahir": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "tgl_join": {
+                                        "type": "string"
+                                    },
+                                    "status_nikah": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "cuti_dadakan": {
+                                        "type": "string"
+                                    },
+                                    "cuti_bersama": {
+                                        "type": "string"
+                                    },
+                                    "cuti_menikah": {
+                                        "type": "string"
+                                    },
+                                    "cuti_diluar_tanggungan": {
+                                        "type": "string"
+                                    },
+                                    "cuti_khusus": {
+                                        "type": "string"
+                                    },
+                                    "cuti_melahirkan": {
+                                        "type": "string"
+                                    },
+                                    "izin_telat": {
+                                        "type": "string"
+                                    },
+                                    "izin_pulang_cepat": {
+                                        "type": "string"
+                                    },
+                                    "is_admin": {
+                                        "type": "string"
+                                    },
+                                    "jabatan_id": {
+                                        "type": "number"
+                                    },
+                                    "lokasi_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400" : {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "validationerror" : {
+                                        "description": "Validation error",
+                                        "value" : {
+                                            "error" : {
+                                                "username" : [
+                                                    "Username is exist",
+                                                    "Usernam min 5 character"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "201" : {
+                        "description":"Success register user",
+                        "content": {
+                            "application/json" : {
+                                "examples": {
+                                    "success" : {
+                                        "description": "Success register user",
+                                        "value" : {
+                                            "data" : {
+                                                "id" : 1,
+                                                "name" : "Muhammad Fazri",
+                                                "username" : "FazriIS",
+                                                "is_admin" : "user",
+                                                "jabatan_id": 2,
+                                                "lokasi_id" : 1
+                                            }
+                                        }
+                                    }
+                                },
+                                "schema" :{
+                                    "type": "object",
+                                    "properties": {
+                                        "data" : {
+                                            "type": "object",
+                                            "properties": {
+                                                "id" : {
+                                                    "type": "number"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "fofo_karyawan": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "telepon": {
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "tgl_lahir": {
+                                                    "type": "string"
+                                                },
+                                                "gender": {
+                                                    "type": "string"
+                                                },
+                                                "tgl_join": {
+                                                    "type": "string"
+                                                },
+                                                "status_nikah": {
+                                                    "type": "string"
+                                                },
+                                                "alamat": {
+                                                    "type": "string"
+                                                },
+                                                "cuti_dadakan": {
+                                                    "type": "string"
+                                                },
+                                                "cuti_bersama": {
+                                                    "type": "string"
+                                                },
+                                                "cuti_menikah": {
+                                                    "type": "string"
+                                                },
+                                                "cuti_diluar_tanggungan": {
+                                                    "type": "string"
+                                                },
+                                                "cuti_khusus": {
+                                                    "type": "string"
+                                                },
+                                                "cuti_melahirkan": {
+                                                    "type": "string"
+                                                },
+                                                "izin_telat": {
+                                                    "type": "string"
+                                                },
+                                                "izin_pulang_cepat": {
+                                                    "type": "string"
+                                                },
+                                                "is_admin": {
+                                                    "type": "string"
+                                                },
+                                                "jabatan_id": {
+                                                    "type": "number"
+                                                },
+                                                "lokasi_id": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        },
+                                        "errors" : {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/login": {
+            "post": {
+                "description": "Login User",
+                "requestBody" : {
+                    "content": {
+                        "application/json" : {
+                            "schema": {
+                                "type" : "object",
+                                "properties": {
+                                    "username" : {
+                                        "type" : "string"
+                                    },
+                                    "password" : {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "201" : {
+                        "description" : "Success Login",
+                        "content": {
+                            "application/json" : {
+                                "schema" :{
+                                    "type": "object",
+                                    "properties": {
+                                        "data" : {
+                                            "type": "object",
+                                            "properties": {
+                                                "id" : {
+                                                    "type": "number"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "is_admin": {
+                                                    "type": "string"
+                                                },
+                                                "jabatan_id": {
+                                                    "type": "number"
+                                                },
+                                                "lokasi_id": {
+                                                    "type": "number"
+                                                },
+                                                "token" : {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors" : {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/": {
+            "get": {
+                "description": "Get current user",
+                "parameters": [
+                    {
+                        "name" : "Authorization",
+                        "in" : "header"
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "description": "Success get current user",
+                        "content": {
+                            "application/json" : {
+                                "schema" :{
+                                    "type": "object",
+                                    "properties": {
+                                        "data" : {
+                                            "type": "object",
+                                            "properties": {
+                                                "id" : {
+                                                    "type": "number"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "is_admin": {
+                                                    "type": "string"
+                                                },
+                                                "jabatan_id": {
+                                                    "type": "number"
+                                                },
+                                                "lokasi_id": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        },
+                                        "errors" : {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+            },
+            "patch": {
+                "description": "Update current user",
+                "parameters": [
+                    {
+                        "name" : "Authorization",
+                        "in" : "header"
+                    }
+                ],
+                "requestBody" : {
+                    "description": "Update current user",
+                    "content": {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "fofo_karyawan": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "telepon": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password" : {
+                                        "type": "string"
+                                    },
+                                    "tgl_lahir": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "status_nikah": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "description": "Success update user",
+                        "content": {
+                            "application/json" : {
+                                "schema" :{
+                                    "type": "object",
+                                    "properties": {
+                                        "data" : {
+                                            "type": "object",
+                                            "properties": {
+                                                "id" : {
+                                                    "type": "number"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "fofo_karyawan": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "telepon": {
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "password" : {
+                                                    "type": "string" 
+                                                },
+                                                "tgl_lahir": {
+                                                    "type": "string"
+                                                },
+                                                "gender": {
+                                                    "type": "string"
+                                                },
+                                                "status_nikah": {
+                                                    "type": "string"
+                                                },
+                                                "alamat": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors" : {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        },
+        "/api/users/logout": {
+            "delete": {
+                "description": "Logout Current Users",
+                "parameters": [
+                    {
+                        "name" : "Authorization",
+                        "in" : "header"
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "description": "Success logout user",
+                        "content": {
+                            "application/json" : {
+                                "schema" :{
+                                    "type": "object",
+                                    "properties": {
+                                        "data" : {
+                                            "type": "boolean"
+                                        },
+                                        "errors" : {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}
